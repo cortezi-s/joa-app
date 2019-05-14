@@ -18,20 +18,25 @@
       </div>
     </nav>
 
-    <section class="main-content columns">
-      <aside class="column is-2 section">
-        <p class="menu-label is-hidden-touch">General</p>
-        <ul class="menu-list">
-          <li v-for="(item, key) of items" :key="key">
-            <nuxt-link :to="item.to" exact-active-class="is-active">
-              <b-icon :icon="item.icon" /> {{ item.title }}
-            </nuxt-link>
-          </li>
-        </ul>
-      </aside>
+    <section>
+      <div class="container">
+        <div class="columns main-content is-centered">
+          <aside class="column is-3 section">
+            <p class="menu-label is-hidden-touch">Gerenciamento</p>
+            <ul class="menu-list">
+              <li v-for="(item, key) of items" :key="key">
+                <nuxt-link :to="item.to" exact-active-class="is-active">
+                  <b-icon :icon="item.icon" />
+                  {{ item.title }}
+                </nuxt-link>
+              </li>
+            </ul>
+          </aside>
 
-      <div class="container column is-10">
-        <nuxt />
+          <div class="column is-7 section">
+            <nuxt />
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -45,12 +50,22 @@ export default {
         {
           title: 'Home',
           icon: 'home',
-          to: { name: 'index' }
+          to: { path: '/' }
         },
         {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' }
+          title: 'Colaboradores',
+          icon: 'users',
+          to: { path: '/admin/collaborator' }
+        },
+        {
+          title: 'Projetos',
+          icon: 'medal',
+          to: { path: '/admin/project' }
+        },
+        {
+          title: 'Artigos',
+          icon: 'newspaper',
+          to: { path: '/admin/article' }
         }
       ]
     }

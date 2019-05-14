@@ -4,6 +4,14 @@ module.exports = {
   mode: 'universal',
 
   /*
+   ** Server configuration
+   */
+  server: {
+    host: 'localhost',
+    port: 8080
+  },
+
+  /*
    ** Headers of the page
    */
   head: {
@@ -37,14 +45,33 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc: https://buefy.github.io/#/documentation
+    '@nuxtjs/proxy',
     'nuxt-buefy'
   ],
+
+  /*
+   ** Buefy module configuration
+   */
+  buefy: {
+    defaultIconPack: 'fas',
+    materialDesignIconsHRef:
+      'https://use.fontawesome.com/releases/v5.4.1/css/all.css'
+  },
+
   /*
    ** Axios module configuration
    */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    debug: true,
+    prefix: '/api/v1/',
+    proxy: true
+  },
+
+  /*
+   ** Axios proxy module configuration
+   */
+  proxy: {
+    '/api/v1/': 'http://localhost:3000'
   },
 
   /*
