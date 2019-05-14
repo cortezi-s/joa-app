@@ -20,7 +20,7 @@ module Api
         @collaborator = Collaborator.new(collaborator_params)
 
         if @collaborator.save
-          render json: @collaborator, status: :created, location: @collaborator
+          render json: @collaborator, status: :created, location: api_v1_collaborator_url(@collaborator)
         else
           render json: @collaborator.errors, status: :unprocessable_entity
         end
