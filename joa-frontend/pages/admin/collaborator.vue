@@ -1,75 +1,75 @@
 <template>
-  <div class="box">
-    <p class="title is-size-2">Colaboradores</p>
-    <form @submit.prevent="addCollaborator">
-      <b-field label="Nome">
-        <b-input v-model="newCollaborator.name" :disabled="successSubmit">
-        </b-input>
-      </b-field>
-      <b-field grouped>
-        <b-field label="Cargo" expanded>
-          <b-input v-model="newCollaborator.role" :disabled="successSubmit">
-          </b-input>
-        </b-field>
-        <b-field label="Linkedin" expanded>
-          <b-input v-model="newCollaborator.linkedin" :disabled="successSubmit">
-          </b-input>
-        </b-field>
-      </b-field>
-      <b-field label="Mensagem">
-        <b-input
-          v-model="newCollaborator.message"
-          type="textarea"
-          :disabled="successSubmit"
-        >
-        </b-input>
-      </b-field>
-      <b-field>
-        <p class="control">
-          <button
-            type="submit"
-            class="button"
-            :class="{
-              'is-primary': !successSubmit,
-              'is-success': successSubmit,
-              'is-loading': isSubmitting
-            }"
-            :disabled="successSubmit"
-          >
-            <span v-if="successSubmit" class="icon is-small">
-              <i class="fas fa-check"></i>
-            </span>
-            <span>
-              {{ submitText }}
-            </span>
-          </button>
-        </p>
-      </b-field>
-    </form>
+  <div>
+    <div class="box">
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <p class="title is-size-2">Colaboradores</p>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <b-button
+              v-if="formIsCurrentTab"
+              type="is-warning"
+              @click="showButtonHandler"
+            >
+              Ver Lista
+            </b-button>
+          </div>
+          <div class="level-item">
+            <b-button
+              v-if="!formIsCurrentTab"
+              type="is-success"
+              icon-left="plus"
+              @click="createButtonHandler"
+            >
+              Criar novo
+            </b-button>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <component
+      :is="currentTabComponent"
+      :collaborator="editCollaborator"
+      @edit:collaborator="editButtonHandler($event)"
+    >
+    </component>
   </div>
 </template>
 
 <script>
+import CollaboratorForm from '~/components/CollaboratorForm'
+import CollaboratorList from '~/components/CollaboratorList'
+
 export default {
   name: 'CollaboratorAdmin',
+  components: {
+    CollaboratorForm,
+    CollaboratorList
+  },
   data() {
     return {
-      isSubmitting: false,
-      successSubmit: false,
-      submitText: 'Salvar',
-      newCollaborator: {}
+      currentTabComponent: 'CollaboratorList',
+      formIsCurrentTab: false,
+      editCollaborator: {}
     }
   },
   methods: {
-    async addCollaborator() {
-      this.isSubmitting = true
-      const result = await this.$axios.$post('collaborators', {
-        collaborator: this.newCollaborator
-      })
-      this.isSubmitting = false
-      this.successSubmit = true
-      this.submitText = 'Salvo'
-      console.log(result)
+    createButtonHandler() {
+      this.editCollaborator = {}
+      this.formIsCurrentTab = true
+      this.currentTabComponent = 'CollaboratorForm'
+    },
+    showButtonHandler() {
+      this.currentTabComponent = 'CollaboratorList'
+      this.formIsCurrentTab = false
+    },
+    editButtonHandler(collaborator) {
+      this.formIsCurrentTab = true
+      this.currentTabComponent = 'CollaboratorForm'
+      this.editCollaborator = collaborator
     }
   }
 }
