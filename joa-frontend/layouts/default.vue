@@ -48,11 +48,6 @@ export default {
     return {
       items: [
         {
-          title: 'Home',
-          icon: 'home',
-          to: { path: '/' }
-        },
-        {
           title: 'Colaboradores',
           icon: 'users',
           to: { path: '/admin/collaborator' }
