@@ -44,6 +44,8 @@ import ArticleForm from '~/components/ArticleForm'
 import ArticleList from '~/components/ArticleList'
 
 export default {
+  name: 'ArtileAdmin',
+  layout: 'admin',
   components: {
     ArticleForm,
     ArticleList

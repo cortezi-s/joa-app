@@ -45,6 +45,7 @@ import ProjectList from '~/components/ProjectList'
 
 export default {
   name: 'CollaboratorAdmin',
+  layout: 'admin',
   components: {
     ProjectForm,
     ProjectList

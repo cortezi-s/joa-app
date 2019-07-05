@@ -45,6 +45,7 @@ import CollaboratorList from '~/components/CollaboratorList'
 
 export default {
   name: 'CollaboratorAdmin',
+  layout: 'admin',
   components: {
     CollaboratorForm,
     CollaboratorList
