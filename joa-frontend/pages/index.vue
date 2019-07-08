@@ -15,7 +15,7 @@
               Buscamos negócios <br />inovadores
             </h1>
             <h1 class="sub">
-              Visando a geração de valor <br />
+              Visando a geração de valor <br class="is-hidden-mobile" />
               ao longo prazo
             </h1>
             <a class="button saibaMais">SAIBA MAIS</a>
@@ -59,6 +59,7 @@
   .textHome {
     margin-top: 4.5rem;
   }
+
   .homeHero {
     position: absolute;
     top: 4rem;
@@ -73,8 +74,6 @@
   }
 
   .heroText {
-    margin-top: 1rem;
-    margin-bottom: 10rem;
     & .button.saibaMais {
       margin-top: 4rem;
       width: 240px;
@@ -98,6 +97,7 @@
   @media screen and (min-width: 768px), print {
     .heroText {
       margin-top: 4.5rem;
+      margin-bottom: 10rem;
     }
   }
 

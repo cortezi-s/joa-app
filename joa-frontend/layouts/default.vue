@@ -120,7 +120,7 @@
       </div>
 
         <div class="container" data-aos="fade-right">
-          <img src="assets/logo-web.svg" alt="Joá Assessoria" width="225" height="45" class="logoFooter">
+          <img src="~/assets/logo-web.svg" alt="Joá Assessoria" width="225" height="45" class="logoFooter">
         </div>
 
     </footer>
@@ -132,18 +132,14 @@
     mounted: function() {
       const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
 
-      // Check if there are any navbar burgers
       if ($navbarBurgers.length > 0) {
 
-        // Add a click event on each of them
         $navbarBurgers.forEach(el => {
           el.addEventListener('click', () => {
 
-            // Get the target from the "data-target" attribute
             const target = el.dataset.target
             const $target = document.getElementById(target)
 
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
             el.classList.toggle('is-active')
             $target.classList.toggle('is-active')
 
@@ -161,8 +157,6 @@
   .footer {
     position: relative;
     bottom: 0;
-    margin-top: 9rem;
-    min-height: 560px;
     background: transparent;
     background-image: url(../assets/footer.svg);
     background-size: cover;
@@ -172,7 +166,7 @@
       right: 0px;
       z-index: 10;
     }
-    font-size: 12px;
+    font-size: 16px;
     color: #28004C;
     & strong {
       color: #28004C;
@@ -186,6 +180,13 @@
     & .logoFooter {
       -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
       filter: grayscale(100%);
+    }
+  }
+  @media screen and (min-width: 768px), print {
+    .footer {
+      font-size: 12px;
+      margin-top: 9rem;
+      min-height: 560px;
     }
   }
 </style>

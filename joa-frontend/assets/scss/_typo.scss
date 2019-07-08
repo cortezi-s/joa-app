@@ -1,18 +1,37 @@
 h1 {
   font-style: normal;
   font-weight: 800;
-  font-size: 56px;
-  line-height: 67px;
+  font-size: 51px;
+  line-height: 61px;
   color: #28004C;
 }
 
 h1.sub {
   font-style: normal;
   font-weight: 300;
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 36px;
+  line-height: 44px;
   color: #28004C;
   margin-top: 1.25rem;
+}
+
+@media screen and (min-width: 768px), print {
+  h1 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 66px;
+    color: #28004C;
+  }
+
+  h1.sub {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 48px;
+    color: #28004C;
+    margin-top: 1.25rem;
+  }
 }
 
 h2 {
