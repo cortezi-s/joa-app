@@ -22,6 +22,8 @@ module.exports = {
   rules: {
     'nuxt/no-cjs-in-config': 'off',
     'no-console': 'off',
-    'import/no-unresolved': 0
+    'import/no-unresolved': 0,
+    'no-param-reassign': 0,
+    'no-unused-vars': 0
   }
 }

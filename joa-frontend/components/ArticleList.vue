@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     fetchArticles() {
-      this.$axios.$get('articles').then(response => {
+      this.$axios.$get('/api/v1/articles').then(response => {
         this.articles = response
       })
     },
@@ -63,11 +63,13 @@ export default {
       })
     },
     deleteArticle() {
-      this.$axios.delete(`articles/${this.actionArticle.id}`).then(response => {
-        if (response.status === 204) {
-          this.articles.splice(this.articles.indexOf(this.actionArticle), 1)
-        }
-      })
+      this.$axios
+        .delete(`/api/v1/articles/${this.actionArticle.id}`)
+        .then(response => {
+          if (response.status === 204) {
+            this.articles.splice(this.articles.indexOf(this.actionArticle), 1)
+          }
+        })
     }
   }
 }

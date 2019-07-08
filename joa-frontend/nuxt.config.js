@@ -39,7 +39,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '~/plugins/axios',
+    '~/plugins/vue-cookie'
+  ],
 
   /*
    ** Nuxt.js modules
@@ -68,7 +71,6 @@ module.exports = {
    */
   axios: {
     debug: true,
-    prefix: '/api/v1/',
     proxy: true
   },
 
@@ -76,7 +78,8 @@ module.exports = {
    ** Axios proxy module configuration
    */
   proxy: {
-    '/api/v1/': 'http://localhost:3000'
+    '/api/v1/': 'http://localhost:3000',
+    '/auth/': 'http://localhost:3000'
   },
 
   /*
