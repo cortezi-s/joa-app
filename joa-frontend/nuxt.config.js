@@ -33,7 +33,7 @@ module.exports = {
    ** Global CSS
    */
   css: [
-    'assets/custom.scss'
+    'assets/scss/custom.scss'
   ],
 
   /*
@@ -48,6 +48,7 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
+    '@nuxtjs/style-resources',
     ['nuxt-buefy', {
       css: false
     }]
