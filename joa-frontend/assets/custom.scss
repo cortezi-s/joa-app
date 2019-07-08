@@ -1,0 +1,17 @@
+@import "~bulma/sass/utilities/_all";
+
+$primary: #28004C;
+$link: $primary;
+$family-primary: 'Inter', sans-serif;
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+$gap: 72px;
+$navbar-height: 2.813rem;
+$navbar-item-img-max-height: 2.813rem;
+$navbar-item-color: $primary;
+$navbar-dropdown-item-hover-color: #FF7300;
+$navbar-background-color: transparent;
+
+@import "~bulma";
+@import "~buefy/src/scss/buefy";

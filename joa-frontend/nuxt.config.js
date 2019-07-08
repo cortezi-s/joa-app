@@ -32,7 +32,9 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    'assets/custom.scss'
+  ],
 
   /*
    ** Plugins to load before mounting the App
@@ -46,7 +48,9 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
-    'nuxt-buefy'
+    ['nuxt-buefy', {
+      css: false
+    }]
   ],
 
   /*
