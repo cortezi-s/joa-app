@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     fetchProjects() {
-      this.$axios.$get('projects').then(response => {
+      this.$axios.$get('/api/v1/projects').then(response => {
         this.projects = response
       })
     },
@@ -63,11 +63,13 @@ export default {
       })
     },
     deleteProject() {
-      this.$axios.delete(`projects/${this.actionProject.id}`).then(response => {
-        if (response.status === 204) {
-          this.projects.splice(this.projects.indexOf(this.actionProject), 1)
-        }
-      })
+      this.$axios
+        .delete(`/api/v1/projects/${this.actionProject.id}`)
+        .then(response => {
+          if (response.status === 204) {
+            this.projects.splice(this.projects.indexOf(this.actionProject), 1)
+          }
+        })
     }
   }
 }

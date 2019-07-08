@@ -67,7 +67,7 @@ export default {
     },
     async addArticle() {
       this.isSubmitting = true
-      await this.$axios.$post('articles', {
+      await this.$axios.$post('/api/v1/articles', {
         article: this.article
       })
       const trixEditor = document.querySelector('trix-editor')
@@ -78,7 +78,7 @@ export default {
     },
     async editArticle() {
       this.isSubmitting = true
-      await this.$axios.$patch(`articles/${this.article.id}`, {
+      await this.$axios.$patch(`/api/v1/articles/${this.article.id}`, {
         article: this.article
       })
       this.isSubmitting = false

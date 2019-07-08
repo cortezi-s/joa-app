@@ -75,7 +75,7 @@ export default {
     },
     async addCollaborator() {
       this.isSubmitting = true
-      await this.$axios.$post('collaborators', {
+      await this.$axios.$post('/api/v1/collaborators', {
         collaborator: this.collaborator
       })
       this.isSubmitting = false
@@ -84,9 +84,12 @@ export default {
     },
     async editCollaborator() {
       this.isSubmitting = true
-      await this.$axios.$patch(`collaborators/${this.collaborator.id}`, {
-        collaborator: this.collaborator
-      })
+      await this.$axios.$patch(
+        `/api/v1/collaborators/${this.collaborator.id}`,
+        {
+          collaborator: this.collaborator
+        }
+      )
       this.isSubmitting = false
       this.successSubmit = true
       this.submitText = 'Salvo'

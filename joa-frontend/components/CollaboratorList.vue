@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     fetchCollaborators() {
-      this.$axios.$get('collaborators').then(response => {
+      this.$axios.$get('/api/v1/collaborators').then(response => {
         this.collaborators = response
         console.log(response)
       })
@@ -73,7 +73,7 @@ export default {
     },
     deleteCollaborator() {
       this.$axios
-        .delete(`collaborators/${this.actionCollaborator.id}`)
+        .delete(`/api/v1/collaborators/${this.actionCollaborator.id}`)
         .then(response => {
           if (response.status === 204) {
             this.collaborators.splice(
