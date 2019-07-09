@@ -1,7 +1,7 @@
 module Api
   module V1
     class CollaboratorsController < ApplicationController
-      before_action :authenticate_user!
+      before_action :authenticate_user!, except: [:index, :show]
       before_action :set_collaborator, only: [:show, :update, :destroy]
 
       # GET /collaborators
