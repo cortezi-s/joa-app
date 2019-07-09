@@ -33,7 +33,8 @@ module.exports = {
    ** Global CSS
    */
   css: [
-    'assets/scss/custom.scss'
+    'assets/scss/custom.scss',
+    'aos/dist/aos.css'
   ],
 
   /*
@@ -41,7 +42,7 @@ module.exports = {
    */
   plugins: [
     '~/plugins/axios',
-    '~/plugins/vue-cookie'
+    '~/plugins/vue-cookie',
   ],
 
   /*
