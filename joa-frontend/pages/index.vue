@@ -18,7 +18,7 @@
               Visando a geração de valor <br class="is-hidden-mobile" />
               ao longo prazo
             </h1>
-            <a class="button saibaMais">SAIBA MAIS</a>
+            <a href="/empresa/institucional" class="button saibaMais">SAIBA MAIS</a>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
               Somos uma gestora de investimentos orientada pela visão fundamentalista de geração de valor no longo prazo. Atuamos ativamente no cenário brasileiro em busca de oportunidades alinhadas aos valores e objetivos da companhia, mirando sempre retornos absolutos e sustentáveis no longo prazo.
               <br />
               <br />
-              <a class="more">Ler mais -></a>
+              <a href="/empresa/institucional" class="more">Ler mais -></a>
             </p>
           </div>
         </div>

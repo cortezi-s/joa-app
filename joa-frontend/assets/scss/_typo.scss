@@ -43,13 +43,25 @@ h2 {
   margin-bottom: 20px;
 }
 
+h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 20px;
+  color: #28004C;
+}
+
+p ~ p {
+  margin-top: 1rem;
+}
+
 p.caption {
   font-size: 14px;
   color: #28004C;
   margin-bottom: 20px;
 }
 
-p.text {
+.text {
   font-size: 16px;
   line-height: 19px;
   color: #6D6178;
