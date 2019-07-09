@@ -1,4 +1,5 @@
 import { pick } from 'lodash'
+import status from 'http-status'
 
 export default function({ app, store, $axios } ) {
   $axios.onRequest(config => {
@@ -32,5 +33,12 @@ export default function({ app, store, $axios } ) {
         app.$cookie.set('session', JSON.stringify(session), { expires: '14D' })
       }
     }
+  })
+
+  $axios.onError(error => {
+	const router = $nuxt._router
+	if(error.response.status === status.UNAUTHORIZED) {
+		router.push({ name: 'login' })
+	}
   })
 }

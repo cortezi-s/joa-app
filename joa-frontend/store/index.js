@@ -16,3 +16,15 @@ export const state = () => ({
   user: null,
   auth: {}
 })
+
+if (process.client) {
+  window.onNuxtReady((app) => {
+    const existingSession = app.$cookie.get('session')
+
+    if (existingSession && existingSession.length) { // A string at this point
+      const session = JSON.parse(existingSession)
+      app.$store.commit('user', session.user)
+      app.$store.commit('auth', session.tokens)
+    }
+  })
+}
