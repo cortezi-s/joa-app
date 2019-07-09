@@ -4,6 +4,7 @@
       <thead>
         <tr>
           <th>Título</th>
+          <th>Fonte</th>
           <th></th>
           <th></th>
         </tr>
@@ -11,6 +12,7 @@
       <tbody>
         <tr v-for="article in articles" :key="article.id" :article="article">
           <td>{{ article.title }}</td>
+          <td>{{ article.source }}</td>
           <td>
             <a @click="editArticle(article)">
               <span class="icon">

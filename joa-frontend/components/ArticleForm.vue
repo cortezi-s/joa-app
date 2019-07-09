@@ -4,12 +4,14 @@
       <b-field label="Título">
         <b-input v-model="article.title" :disabled="successSubmit"> </b-input>
       </b-field>
-      <b-field label="Subtítulo">
-        <b-input v-model="article.subtitle" :disabled="successSubmit">
+      <b-field label="Fonte">
+        <b-input v-model="article.source" :disabled="successSubmit">
         </b-input>
       </b-field>
-      <VueTrix v-model="article.content" />
-      <b-field></b-field>
+      <b-field label="Link">
+        <b-input v-model="article.link" :disabled="successSubmit">
+        </b-input>
+      </b-field>
       <b-field>
         <p class="control">
           <button
@@ -36,12 +38,7 @@
 </template>
 
 <script>
-import VueTrix from 'vue-trix'
-
 export default {
-  components: {
-    VueTrix
-  },
   props: {
     article: {
       type: Object,
@@ -70,8 +67,6 @@ export default {
       await this.$axios.$post('/api/v1/admin/articles', {
         article: this.article
       })
-      const trixEditor = document.querySelector('trix-editor')
-      trixEditor.setAttribute('contentEditable', 'false')
       this.isSubmitting = false
       this.successSubmit = true
       this.submitText = 'Salvo'

@@ -49,7 +49,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def article_params
-          params.require(:article).permit(:title, :subtitle, :content, :image)
+          params.require(:article).permit(:title, :source, :link)
         end
     end
   end

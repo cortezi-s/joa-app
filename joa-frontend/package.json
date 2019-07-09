@@ -25,8 +25,7 @@
     "nuxt": "^2.4.0",
     "nuxt-buefy": "^0.3.2",
     "sass-loader": "^7.1.0",
-    "vue-cookie": "^1.1.4",
-    "vue-trix": "^0.8.1"
+    "vue-cookie": "^1.1.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
