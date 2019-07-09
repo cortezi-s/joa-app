@@ -75,7 +75,7 @@ export default {
     },
     async addCollaborator() {
       this.isSubmitting = true
-      await this.$axios.$post('/api/v1/collaborators', {
+      await this.$axios.$post('/api/v1/admin/collaborators', {
         collaborator: this.collaborator
       })
       this.isSubmitting = false
@@ -85,7 +85,7 @@ export default {
     async editCollaborator() {
       this.isSubmitting = true
       await this.$axios.$patch(
-        `/api/v1/collaborators/${this.collaborator.id}`,
+        `/api/v1/admin/collaborators/${this.collaborator.id}`,
         {
           collaborator: this.collaborator
         }

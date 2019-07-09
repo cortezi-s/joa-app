@@ -107,7 +107,7 @@ export default {
     },
     async addProject() {
       this.isSubmitting = true
-      await this.$axios.$post('/api/v1/projects', {
+      await this.$axios.$post('/api/v1/admin/projects', {
         project: this.project
       })
       this.isSubmitting = false
@@ -116,7 +116,7 @@ export default {
     },
     async editProject() {
       this.isSubmitting = true
-      await this.$axios.$patch(`/api/v1/projects/${this.project.id}`, {
+      await this.$axios.$patch(`/api/v1/admin/projects/${this.project.id}`, {
         project: this.project
       })
       this.isSubmitting = false

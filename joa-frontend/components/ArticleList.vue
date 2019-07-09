@@ -64,7 +64,7 @@ export default {
     },
     deleteArticle() {
       this.$axios
-        .delete(`/api/v1/articles/${this.actionArticle.id}`)
+        .delete(`/api/v1/admin/articles/${this.actionArticle.id}`)
         .then(response => {
           if (response.status === 204) {
             this.articles.splice(this.articles.indexOf(this.actionArticle), 1)
