@@ -3,7 +3,7 @@
     <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
       <div class="container">
         <div class="navbar-brand">
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" href="/">
             <img src="~/assets/logo-web.svg" alt="Joá Assessoria" width="225" height="45">
           </a>
           <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="joaNavbar">
@@ -20,13 +20,13 @@
               </a>
 
               <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item">
+                <a href="/empresa/institucional" class="navbar-item">
                   Institucional
                 </a>
-                <a class="navbar-item">
+                <a class="navbar-item is-hidden">
                   Governança
                 </a>
-                <a class="navbar-item">
+                <a href="/empresa/time" class="navbar-item">
                   Time
                 </a>
               </div>
@@ -37,7 +37,7 @@
               </a>
 
               <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item">
+                <a class="navbar-item is-hidden">
                   Fundos
                 </a>
                 <a class="navbar-item">
@@ -79,7 +79,7 @@
       </div>
     </nav>
     <nuxt/>
-    <footer class="footer" data-aos="fade-up">
+    <footer class="footer">
       <div class="container">
         <div class="columns" data-aos="fade-right">
           <div class="column is-half is-full-mobile">
@@ -87,14 +87,14 @@
               <div class="column">
                 <strong>EMPRESA</strong>
                 <br /><br />
-                <a href="teste">Institucional</a><br />
-                <a href="#">Governança</a><br />
-                <a href="#">Time</a><br />
+                <a href="/empresa/institucional">Institucional</a><br />
+                <span class="is-hidden"><a href="#">Governança</a><br /></span>
+                <a href="/empresa/time">Time</a><br />
               </div>
               <div class="column">
                 <strong>NEGÓCIOS</strong>
                 <br /><br />
-                <a href="#">Fundos</a><br />
+                <span class="is-hidden"><a href="#">Fundos</a><br /></span>
                 <a href="#">Portfólio</a><br />
                 <a href="#">Notícias</a><br />
               </div>
@@ -106,7 +106,7 @@
               <div class="column">
                 <strong>CONTATO</strong>
                 <br /><br />
-                <a href="http://teste.com">Contato</a><br />
+                <a href="#">Contato</a><br />
                 <a href="#">Carreira</a><br />
               </div>
             </div>
