@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <form @submit.prevent="addArticle">
+    <form @submit.prevent="formSubmitted">
       <b-field label="Título">
         <b-input v-model="article.title" :disabled="successSubmit"> </b-input>
       </b-field>
