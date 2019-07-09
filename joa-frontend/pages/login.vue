@@ -1,0 +1,110 @@
+<template>
+  <main class="login">
+    <div class="columns is-centered is-gapless">
+      <div class="column is-3">
+        <form @submit.prevent="formSubmitted">
+          <div class="login-form-header">
+            <img src="~/assets/icon.svg" width="95" class="logo" />
+            <div class="has-text-centered">
+              <h1 class="is-size-4 is-size-3">Gerenciamento Website</h1>
+            </div>
+          </div>
+          <div class="login-form-body">
+            <b-field label="Usuário">
+              <b-input v-model="user.username"></b-input>
+            </b-field>
+            <b-field label="Senha">
+              <b-input v-model="user.password" type="password"></b-input>
+            </b-field>
+            <b-field>
+              <p class="control">
+                <button type="submit" class="button is-primary is-fullwidth">
+                  Entrar
+                </button>
+              </p>
+            </b-field>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</template>
+
+<script>
+import { pick } from 'lodash'
+
+export default {
+  name: 'LoginPage',
+  data() {
+    return {
+      user: {}
+    }
+  },
+  methods: {
+    formSubmitted() {
+      this.sign_in()
+    },
+    sign_in() {
+      this.$axios
+        .post('/auth/sign_in', {
+          username: this.user.username,
+          password: this.user.password
+        })
+        .then(response => {
+          const authHeaders = pick(response.headers, [
+            'access-token',
+            'client',
+            'expiry',
+            'uid',
+            'token-type'
+          ])
+          this.$store.commit('auth', authHeaders)
+
+          // response.data.data is an object containing public information about the current user.
+          // This is useful to keep track of so that your app can display the current user's
+          // email/username somewhere.
+          this.$store.commit('user', response.data.data)
+
+          // Write both the response headers and the current user data to the cookie.
+          const contents = {
+            tokens: authHeaders,
+            user: response.data.data
+          }
+
+          this.$cookie.set('session', JSON.stringify(contents), {
+            expires: '14D'
+          })
+
+          // Go home or wherever the user originally wanted to go
+          this.$router.push({ name: 'admin-collaborator' })
+        })
+    }
+  }
+}
+</script>
+
+<style>
+body {
+  background-color: #f9f9f9;
+  height: 100vh;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 24px;
+}
+
+.login-form-header {
+  padding-top: 32px;
+  margin-bottom: 15px;
+}
+
+.login-form-body {
+  padding: 20px;
+  background-color: white;
+  border: solid #d8dee2 1px;
+  border-radius: 5px;
+}
+</style>

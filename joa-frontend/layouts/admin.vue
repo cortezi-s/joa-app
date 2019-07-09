@@ -44,7 +44,6 @@
 
 <script>
 export default {
-  layout: 'default',
   data() {
     return {
       items: [
