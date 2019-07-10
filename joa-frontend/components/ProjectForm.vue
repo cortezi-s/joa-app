@@ -1,9 +1,22 @@
 <template>
   <div class="box">
-    <form @submit.prevent="formSubmitted">
-      <b-field label="Nome da empresa">
-        <b-input v-model="project.company_name" :disabled="successSubmit">
-        </b-input>
+    <form enctype="multipart/form-data" @submit.prevent="formSubmitted">
+      <b-field grouped>
+        <b-field label="Nome da empresa" expanded>
+          <b-input v-model="project.company_name" :disabled="successSubmit">
+          </b-input>
+        </b-field>
+        <b-field label="Imagem" expanded>
+          <b-upload v-model="project.hero_image">
+              <a class="button is-primary">
+                  <b-icon icon="upload"></b-icon>
+                  <span>Click to upload</span>
+              </a>
+          </b-upload>
+          <span class="file-name" v-if="project.hero_image">
+              {{ project.hero_image.name }}
+          </span>
+        </b-field>
       </b-field>
       <b-field label="Fundadores">
         <b-input v-model="project.founders" :disabled="successSubmit">
@@ -92,6 +105,7 @@ export default {
   },
   data() {
     return {
+      file: null,
       isSubmitting: false,
       successSubmit: false,
       submitText: 'Salvar'
@@ -107,9 +121,12 @@ export default {
     },
     async addProject() {
       this.isSubmitting = true
-      await this.$axios.$post('/api/v1/admin/projects', {
-        project: this.project
-      })
+      let formData = new FormData()
+      Object.entries(this.project).forEach(
+        ([key, value]) => formData.append(`project[${key}]`, value)
+      )
+      await this.$axios.$post('/api/v1/admin/projects', formData)
+
       this.isSubmitting = false
       this.successSubmit = true
       this.submitText = 'Salvo'
