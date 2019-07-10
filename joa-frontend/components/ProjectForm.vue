@@ -106,6 +106,7 @@ export default {
   data() {
     return {
       file: null,
+      formData: null,
       isSubmitting: false,
       successSubmit: false,
       submitText: 'Salvar'
@@ -113,6 +114,10 @@ export default {
   },
   methods: {
     formSubmitted() {
+      this.formData = new FormData()
+      Object.entries(this.project).forEach(
+        ([key, value]) => this.formData.append(`project[${key}]`, value)
+      )
       if (this.project.id) {
         this.editProject()
       } else {
@@ -121,21 +126,14 @@ export default {
     },
     async addProject() {
       this.isSubmitting = true
-      let formData = new FormData()
-      Object.entries(this.project).forEach(
-        ([key, value]) => formData.append(`project[${key}]`, value)
-      )
-      await this.$axios.$post('/api/v1/admin/projects', formData)
-
+      await this.$axios.$post('/api/v1/admin/projects', this.formData)
       this.isSubmitting = false
       this.successSubmit = true
       this.submitText = 'Salvo'
     },
     async editProject() {
       this.isSubmitting = true
-      await this.$axios.$patch(`/api/v1/admin/projects/${this.project.id}`, {
-        project: this.project
-      })
+      await this.$axios.$patch(`/api/v1/admin/projects/${this.project.id}`, this.formData)
       this.isSubmitting = false
       this.successSubmit = true
       this.submitText = 'Salvo'
