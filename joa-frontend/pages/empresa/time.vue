@@ -1,5 +1,5 @@
 <template>
-  <div id="institucional">
+  <div id="time">
     <section class="section">
       <div class="container">
         <div class="is-inline-block">
@@ -14,7 +14,7 @@
         </div>
 
         <div class="columns is-multiline">
-          <div class="column is-4" v-for="collaborator in collaborators">
+          <div class="column is-4 is-flex" v-for="collaborator in collaborators">
             <div class="card">
               <div class="card-content">
                 <div class="media">
@@ -101,14 +101,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .titleDiv {
-    display: flex;
-    flex-direction: column;
-    & * > hr {
-      margin-top: unset;
-      width: 80%;
-    }
-  }
   .card {
     border-radius: 10px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);

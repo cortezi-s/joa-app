@@ -40,17 +40,3 @@
     </section>
   </div>
 </template>
-
-<style lang="scss">
-  .titleDiv {
-    display: flex;
-    flex-direction: column;
-    & * > hr {
-      margin-top: unset;
-      width: 80%;
-    }
-  }
-  strong {
-    color: unset;
-  }
-</style>
