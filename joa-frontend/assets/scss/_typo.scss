@@ -73,3 +73,16 @@ a.more {
   line-height: 19px;
   color: #FF7300;
 }
+
+strong {
+  color: unset;
+}
+
+.titleDiv {
+  display: flex;
+  flex-direction: column;
+  & * > hr {
+    margin-top: unset;
+    width: 80%;
+  }
+}

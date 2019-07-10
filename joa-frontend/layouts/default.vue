@@ -40,10 +40,10 @@
                 <a class="navbar-item is-hidden">
                   Fundos
                 </a>
-                <a class="navbar-item">
+                <a href="/negocios/portfolio" class="navbar-item">
                   Portifólio
                 </a>
-                <a class="navbar-item">
+                <a href="/negocios/noticias" class="navbar-item">
                   Notícias
                 </a>
               </div>
@@ -95,8 +95,8 @@
                 <strong>NEGÓCIOS</strong>
                 <br /><br />
                 <span class="is-hidden"><a href="#">Fundos</a><br /></span>
-                <a href="#">Portfólio</a><br />
-                <a href="#">Notícias</a><br />
+                <a href="/negocios/portfolio">Portfólio</a><br />
+                <a href="/negocios/noticias">Notícias</a><br />
               </div>
               <div class="column">
                 <strong>COMUNICAÇÃO</strong>
@@ -167,7 +167,7 @@
 
 <style lang="scss">
   nav {
-    margin-top: 1.5rem;
+    padding-top: 1.5rem;
   }
   .footer {
     position: relative;

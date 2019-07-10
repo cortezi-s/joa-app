@@ -2,6 +2,8 @@
 
 $primary: #28004C;
 $link: $primary;
+$light: #00B0CB;
+$info: #FF7300;
 $family-primary: 'Inter', sans-serif;
 @supports (font-variation-settings: normal) {
   html { font-family: 'Inter var', sans-serif; }
@@ -10,8 +12,14 @@ $gap: 72px;
 $navbar-height: 2.813rem;
 $navbar-item-img-max-height: 2.813rem;
 $navbar-item-color: $primary;
-$navbar-dropdown-item-hover-color: #FF7300;
+$navbar-dropdown-item-hover-color: $info;
 $navbar-background-color: transparent;
+$colors: (
+    "primary": ($primary, $primary-invert),
+    "link": ($link, $link-invert),
+    "light": ($light, $light-invert),
+    "info": ($info, $info-invert)
+);
 
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
