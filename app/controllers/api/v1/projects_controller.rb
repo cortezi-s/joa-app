@@ -9,7 +9,7 @@ module Api
         @projects = Project.all.with_attached_hero_image
 
         render json: @projects.map { |project|
-          image_url = project.hero_image.present? ? url_for(project.hero_image) : nil
+          image_url = project.hero_image.present? ? rails_blob_path(project.hero_image) : nil
           project.as_json.merge({ image: image_url })
         }
       end
