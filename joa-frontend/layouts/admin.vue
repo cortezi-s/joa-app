@@ -93,6 +93,7 @@ export default {
           client: authHeaders['client'],
           uid: authHeaders['uid']
         })
+      this.$cookie.delete('session')
       this.$router.push({ name: 'login' })
     }
   }
