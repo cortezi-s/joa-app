@@ -2,6 +2,16 @@
   <div id="portfolio">
     <section class="section">
       <div class="container">
+        <div class="columns">
+          <div class="column is-half">
+            <p class="text">
+              A <strong>Joa Assessoria</strong> faz parte do <strong>Grupo Joa Investimentos</strong>, holding que atua
+              no mercado brasileiro de Private Equity e conta com diversos negócios. Os
+              principais integrantes do portfólio do grupo são:
+            </p>
+            <br />
+          </div>
+        </div>
         <div class="is-inline-block">
           <div class="titleDiv">
             <div>
@@ -10,15 +20,6 @@
             <div>
               <hr />
             </div>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column is-half">
-            <p class="text">
-              A <strong>Joa Assessoria</strong> faz parte do <strong>Grupo Joa Investimentos</strong>, holding que atua
-              no mercado brasileiro de Private Equity e conta com diversos negócios. Os
-              principais integrantes do portfólio do grupo são:
-            </p>
           </div>
         </div>
         <div class="columns is-multiline">
@@ -46,6 +47,53 @@
         </div>
       </div>
     </section>
+    <section class="section">
+      <div class="container">
+        <div class="is-inline-block">
+          <div class="titleDiv">
+            <div>
+              <h2>Notícias</h2>
+            </div>
+            <div>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="columns is-multiline">
+          <div class="column is-3" v-for="article in articles">
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <h4>{{ article.title }}</h4>
+                    <p class="text">
+                      <b-icon
+                        pack="fas"
+                        icon="newspaper"
+                        size="is-small"
+                        type="is-light">
+                      </b-icon>
+                      <span>{{ article.source }}</span>
+                    </p>
+                    <p class="text">
+                      <a :href='article.link' class="has-text-info link">
+                        <b-icon
+                          pack="fas"
+                          icon="link"
+                          size="is-small"
+                          type="is-info">
+                        </b-icon>
+                        <span>Ler matéria -></span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -53,16 +101,24 @@
   export default {
     data() {
       return {
-        projects: []
+        projects: [],
+        articles: []
       }
     },
     created() {
-      this.fetchProjects()
+      this.fetchProjects(),
+      this.fetchArticles()
     },
     methods: {
       fetchProjects() {
         this.$axios.$get('/api/v1/projects').then(response => {
           this.projects = response
+          console.log(response)
+        })
+      },
+      fetchArticles() {
+        this.$axios.$get('/api/v1/articles').then(response => {
+          this.articles = response
           console.log(response)
         })
       }
@@ -79,5 +135,8 @@
   figure.image > img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+  }
+  h4 ~ p {
+    margin-top: 1rem;
   }
 </style>
