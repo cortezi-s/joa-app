@@ -18,7 +18,6 @@
               Visando a geração de valor <br class="is-hidden-mobile" />
               ao longo prazo
             </h1>
-            <a href="/empresa/institucional" class="button saibaMais">SAIBA MAIS</a>
           </div>
         </div>
       </div>
@@ -38,10 +37,7 @@
             <img id="birds" src="~/assets/birds.svg" data-aos="fade-right">
           </div>
           <div class="column is-half textHome" data-aos="fade-left">
-            <p class="caption">
-              SOBRE
-            </p>
-            <h2>A Joá Assessoria</h2>
+            <h2>A Joa Assessoria</h2>
             <p class="text">
               Somos uma gestora de investimentos orientada pela visão fundamentalista de geração de valor no longo prazo. Atuamos ativamente no cenário brasileiro em busca de oportunidades alinhadas aos valores e objetivos da companhia, mirando sempre retornos absolutos e sustentáveis no longo prazo.
               <br />
@@ -69,7 +65,7 @@
 
   @media screen and (min-width: 1900px), print {
     .homeHero {
-      right: 2rem;
+      right: 3rem;
     }
   }
 
@@ -97,13 +93,21 @@
   @media screen and (min-width: 768px), print {
     .heroText {
       margin-top: 4.5rem;
-      margin-bottom: 10rem;
+      margin-bottom: 15rem;
+    }
+  }
+
+   @media screen and (min-width: 1470px), print {
+    .heroText {
+      margin-top: 4.5rem;
+      margin-bottom: 20rem;
     }
   }
 
   .homeContentBg {
     position: absolute;
     left: -16rem;
+    margin-top: -4.5rem;
     z-index: -1;
   }
 
