@@ -3,12 +3,6 @@
     <div class="columns is-centered is-gapless">
       <div class="column is-3">
         <form @submit.prevent="formSubmitted">
-          <div class="login-form-header">
-            <img src="~/assets/icon.svg" width="95" class="logo" />
-            <div class="has-text-centered">
-              <h1 class="is-size-4 is-size-3">Gerenciamento Website</h1>
-            </div>
-          </div>
           <div class="login-form-body">
             <b-field label="Usuário" :type="{ 'is-danger': hasError }">
               <b-input v-model="user.username"></b-input>
@@ -108,18 +102,6 @@ export default {
 body {
   background-color: #f9f9f9;
   height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 24px;
-}
-
-.login-form-header {
-  padding-top: 32px;
-  margin-bottom: 15px;
 }
 
 .login-form-body {
