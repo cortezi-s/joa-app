@@ -62,22 +62,8 @@
                 </a>
               </div>
             </div>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link is-arrowless">
-                CONTATO
-              </a>
 
-              <div class="navbar-dropdown is-boxed">
-                <a href="/contato" class="navbar-item">
-                  Contato
-                </a>
-                <a class="navbar-item">
-                  Carreira
->>>>>>> fa4736d846d1ca551fa84549dbec8cd5b33e74fb
-                </a>
-              </div>
-            </div>
-            <a class="navbar-item contactMenu">
+            <a href="/contato" class="navbar-item contactMenu">
               CONTATO
             </a>
 
