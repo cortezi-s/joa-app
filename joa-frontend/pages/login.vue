@@ -18,8 +18,18 @@
             </b-field>
             <b-field>
               <p class="control">
-                <button type="submit" class="button is-primary is-fullwidth">
-                  Entrar
+                <button
+                  type="submit"
+                  class="button"
+                  :class="[
+                    'is-primary',
+                    'is-fullwidth',
+                    { 'is-loading': isSubmitting }
+                  ]"
+                >
+                  <span>
+                    Entrar
+                  </span>
                 </button>
               </p>
             </b-field>
@@ -40,7 +50,8 @@ export default {
     return {
       user: {},
       errorMessage: null,
-      hasError: false
+      hasError: false,
+      isSubmitting: false
     }
   },
   methods: {
@@ -48,12 +59,14 @@ export default {
       this.sign_in()
     },
     sign_in() {
+      this.isSubmitting = true
       this.$axios
         .post('/auth/sign_in', {
           username: this.user.username,
           password: this.user.password
         })
         .then(response => {
+          this.isSubmitting = false
           const authHeaders = pick(response.headers, [
             'access-token',
             'client',
@@ -82,6 +95,7 @@ export default {
           this.$router.push({ name: 'admin-collaborator' })
         })
       .catch(error => {
+        this.isSubmitting = false
         this.hasError = true
         this.errorMessage = error.response.data.errors[0]
       })
