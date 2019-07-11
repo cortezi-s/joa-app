@@ -81,7 +81,7 @@ module.exports = {
   proxy: {
     '/api/v1/': 'http://localhost:3000',
     '/auth/': 'http://localhost:3000',
-    '/rails/active_storage/': 'http://23.92.20.101:3000'
+    '/rails/active_storage/': 'http://localhost:3000'
   },
 
   /*
