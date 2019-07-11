@@ -17,6 +17,23 @@
             <span />
           </div>
         </div>
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Sessão
+              </a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  Alterar a senha
+                </a>
+                <a class="navbar-item" @click="sign_out">
+                  Finalizar sessão
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
 
@@ -65,6 +82,18 @@ export default {
           to: { path: '/admin/article' }
         }
       ]
+    }
+  },
+  methods: {
+    async sign_out() {
+      const authHeaders = this.$store.getters['auth']
+      await this.$axios
+        .$delete('/auth/sign_out', {
+          'access-token': authHeaders['access-token'],
+          client: authHeaders['client'],
+          uid: authHeaders['uid']
+        })
+      this.$router.push({ name: 'login' })
     }
   }
 }
