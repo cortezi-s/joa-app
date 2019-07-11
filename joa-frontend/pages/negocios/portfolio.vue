@@ -26,7 +26,7 @@
             <div class="card">
               <div class="card-image">
                 <figure class="image">
-                  <img src="https://bulma.io/images/placeholders/1280x960.png" :alt='project.company_name'>
+                  <img :src='project.hero_image' :alt='project.company_name'>
                 </figure>
               </div>
               <div class="card-content">
