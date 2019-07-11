@@ -15,7 +15,7 @@ h1.sub {
   margin-top: 1.25rem;
 }
 
-@media screen and (min-width: 768px), print {
+@media screen and (min-width: 1470px), print {
   h1 {
     font-style: normal;
     font-weight: 800;
@@ -47,7 +47,15 @@ h3 {
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
-  line-height: 20px;
+  line-height: 28px;
+  color: #28004C;
+}
+
+h4 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
   color: #28004C;
 }
 
