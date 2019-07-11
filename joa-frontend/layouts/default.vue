@@ -65,7 +65,7 @@
               </a>
 
               <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item">
+                <a href="/contato" class="navbar-item">
                   Contato
                 </a>
                 <a class="navbar-item">
