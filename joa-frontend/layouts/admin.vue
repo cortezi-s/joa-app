@@ -85,16 +85,24 @@ export default {
     }
   },
   methods: {
-    async sign_out() {
+    sign_out() {
       const authHeaders = this.$store.getters['auth']
-      await this.$axios
+      this.$axios
         .$delete('/auth/sign_out', {
           'access-token': authHeaders['access-token'],
           client: authHeaders['client'],
           uid: authHeaders['uid']
         })
-      this.$cookie.delete('session')
-      this.$router.push({ name: 'login' })
+        .then(response => {
+          this.$cookie.delete('session')
+          this.$router.push({ name: 'login' })
+          this.$toast.open({
+            duration: 5000,
+            message: 'Sessão finalizada!',
+            position: 'is-bottom',
+            type: 'is-info'
+          })
+        })
     }
   }
 }
