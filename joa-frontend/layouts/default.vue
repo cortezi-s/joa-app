@@ -29,6 +29,9 @@
                 <a href="/empresa/time" class="navbar-item">
                   Time
                 </a>
+                <a class="navbar-item">
+                  Documentos relevantes
+                </a>
               </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -41,38 +44,13 @@
                   Fundos
                 </a>
                 <a href="/negocios/portfolio" class="navbar-item">
-                  Portifólio
-                </a>
-                <a href="/negocios/noticias" class="navbar-item">
-                  Notícias
+                  Portfólio
                 </a>
               </div>
             </div>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link is-arrowless">
-                COMUNICAÇÃO
-              </a>
-
-              <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item">
-                  Relatórios
-                </a>
-              </div>
-            </div>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link is-arrowless">
-                CONTATO
-              </a>
-
-              <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item">
-                  Contato
-                </a>
-                <a class="navbar-item">
-                  Carreira
-                </a>
-              </div>
-            </div>
+            <a class="navbar-item contactMenu">
+              CONTATO
+            </a>
 
           </div>
         </div>
@@ -90,24 +68,18 @@
                 <a href="/empresa/institucional">Institucional</a><br />
                 <span class="is-hidden"><a href="#">Governança</a><br /></span>
                 <a href="/empresa/time">Time</a><br />
+                <a href="#">Documentos relevantes</a>
               </div>
               <div class="column">
                 <strong>NEGÓCIOS</strong>
                 <br /><br />
                 <span class="is-hidden"><a href="#">Fundos</a><br /></span>
                 <a href="/negocios/portfolio">Portfólio</a><br />
-                <a href="/negocios/noticias">Notícias</a><br />
               </div>
-              <div class="column">
-                <strong>COMUNICAÇÃO</strong>
-                <br /><br />
-                <a href="#">Relatório</a><br />
-              </div>
-              <div class="column">
+              <div class="column has-text-left">
                 <strong>CONTATO</strong>
                 <br /><br />
                 <a href="#">Contato</a><br />
-                <a href="#">Carreira</a><br />
               </div>
             </div>
           </div>
@@ -169,6 +141,9 @@
   nav {
     padding-top: 1.5rem;
   }
+  .navbar-item.contactMenu:hover {
+    color: #FF7300;
+  }
   .footer {
     position: relative;
     bottom: 0;
@@ -200,7 +175,7 @@
   @media screen and (min-width: 768px), print {
     .footer {
       font-size: 12px;
-      margin-top: 9rem;
+      margin-top: 4.5rem;
       min-height: 560px;
     }
   }
