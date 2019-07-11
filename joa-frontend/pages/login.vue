@@ -10,10 +10,10 @@
             </div>
           </div>
           <div class="login-form-body">
-            <b-field label="Usuário">
+            <b-field label="Usuário" :type="{ 'is-danger': hasError }">
               <b-input v-model="user.username"></b-input>
             </b-field>
-            <b-field label="Senha">
+            <b-field label="Senha" :type="{ 'is-danger': hasError }" :message="errorMessage">
               <b-input v-model="user.password" type="password"></b-input>
             </b-field>
             <b-field>
@@ -38,7 +38,9 @@ export default {
   layout: 'blank',
   data() {
     return {
-      user: {}
+      user: {},
+      errorMessage: null,
+      hasError: false
     }
   },
   methods: {
@@ -79,6 +81,10 @@ export default {
           // Go home or wherever the user originally wanted to go
           this.$router.push({ name: 'admin-collaborator' })
         })
+      .catch(error => {
+        this.hasError = true
+        this.errorMessage = error.response.data.errors[0]
+      })
     }
   }
 }

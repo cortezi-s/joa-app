@@ -36,9 +36,9 @@ export default function({ app, store, $axios } ) {
   })
 
   $axios.onError(error => {
-	const router = $nuxt._router
-	if(error.response.status === status.UNAUTHORIZED) {
-		router.push({ name: 'login' })
-	}
+    const router = $nuxt._router
+    if(router.currentRoute.name !== 'login' && error.response.status === status.UNAUTHORIZED) {
+      router.push({ name: 'login' })
+    }
   })
 }
