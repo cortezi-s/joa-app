@@ -4,7 +4,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <img src="~/assets/logo-web.svg" alt="Joá Assessoria" width="225" height="45">
+            <img src="~/assets/logo-light.svg" alt="Joá Assessoria" width="225" height="45">
           </a>
           <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="joaNavbar">
             <span aria-hidden="true"></span>
@@ -138,12 +138,9 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   nav {
     padding-top: 1.5rem;
-  }
-  .navbar-item.contactMenu:hover {
-    color: #FF7300;
   }
   .footer {
     position: relative;
@@ -174,6 +171,12 @@
     }
   }
   @media screen and (min-width: 768px), print {
+    .navbar-link.is-arrowless {
+      color: white;
+    }
+    .navbar-item.contactMenu {
+      color: white;
+    }
     .footer {
       font-size: 12px;
       margin-top: 4.5rem;
