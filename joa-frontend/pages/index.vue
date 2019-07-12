@@ -65,7 +65,8 @@
 
   @media screen and (min-width: 1900px), print {
     .homeHero {
-      right: 3rem;
+      right: 12.5rem;
+      top: 6rem;
     }
   }
 
