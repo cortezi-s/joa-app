@@ -21,16 +21,16 @@
           <div class="column is-4">
             <div class="box">
               <form @submit.prevent="formSubmitted">
-                <b-field label="Nome">
+                <b-field label="Nome" :message="errors.name" :type="{'is-danger': errors.name}">
                   <b-input v-model="contact.name"></b-input>
                 </b-field>
-                <b-field label="Email">
+                <b-field label="Email" :message="errors.email" :type="{'is-danger': errors.email}">
                   <b-input v-model="contact.email"></b-input>
                 </b-field>
-                <b-field label="Assunto">
+                <b-field label="Assunto" :message="errors.subject" :type="{'is-danger': errors.subject}">
                   <b-input v-model="contact.subject"></b-input>
                 </b-field>
-                <b-field label="Mensagem">
+                <b-field label="Mensagem" :message="errors.message" :type="{'is-danger': errors.message}">
                   <b-input v-model="contact.message" type="textarea" rows="8"></b-input>
                 </b-field>
                 <b-field>
@@ -76,12 +76,52 @@
       return {
         contact: {},
         isSubmitting: false,
-        successSubmit: false
+        successSubmit: false,
+        errors: {
+          name: null,
+          email: null,
+          subject: null,
+          message: null
+        }
       }
     },
     methods: {
       formSubmitted() {
-        this.sendMessage()
+        if(this.formIsValid()){
+          this.sendMessage()
+        }
+      },
+      formIsValid() {
+        var valid = true
+        this.errors.name = null
+        this.errors.email = null
+        this.errors.subject = null
+        this.errors.message = null
+        if(this.contact.name === undefined || !this.contact.name.trim()) {
+          this.errors.name = 'Este campo é obrigatório'
+          valid = false
+        }
+        if(this.contact.email === undefined || !this.contact.email.trim()) {
+          this.errors.email = 'Este campo é obrigatório'
+          valid = false
+        } else if(!this.validateEmail(this.contact.email)) {
+          this.errors.email = 'Email inválido'
+          valid = false
+        }
+        if(this.contact.subject === undefined || !this.contact.subject.trim()) {
+          this.errors.subject = 'Este campo é obrigatório'
+          valid = false
+        }
+        if(this.contact.message === undefined || !this.contact.message.trim()) {
+          this.errors.message = 'Este campo é obrigatório'
+          valid = false
+        }
+
+        return valid
+      },
+      validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        return re.test(String(email).toLowerCase())
       },
       sendMessage() {
         this.isSubmitting = true
