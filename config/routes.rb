@@ -12,4 +12,5 @@ Rails.application.routes.draw do
 		  resources :collaborators
 		end
 	end
+	post 'contact', to: 'contacts#create'
 end

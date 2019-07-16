@@ -20,35 +20,85 @@
         <div class="columns is-centered">
           <div class="column is-4">
             <div class="box">
-            <form>
-              <b-field label="Nome">
-                <b-input></b-input>
-              </b-field>
-              <b-field label="Email">
-                <b-input></b-input>
-              </b-field>
-              <b-field label="Assunto">
-                <b-input></b-input>
-              </b-field>
-              <b-field label="Mensagem">
-                <b-input type="textarea" rows="8"></b-input>
-              </b-field>
-              <div class="has-text-centered">
-                <b-button
-                  type="is-info"
-                  icon-left="paper-plane"
-                >
-                  Enviar mensagem
-                </b-button>
-              </div>
-            </form>
-          </div>
+              <form @submit.prevent="formSubmitted">
+                <b-field label="Nome">
+                  <b-input v-model="contact.name"></b-input>
+                </b-field>
+                <b-field label="Email">
+                  <b-input v-model="contact.email"></b-input>
+                </b-field>
+                <b-field label="Assunto">
+                  <b-input v-model="contact.subject"></b-input>
+                </b-field>
+                <b-field label="Mensagem">
+                  <b-input v-model="contact.message" type="textarea" rows="8"></b-input>
+                </b-field>
+                <b-field>
+                  <p class="control has-text-centered">
+                    <button
+                      type="submit"
+                      class="button is-info"
+                      :class="{'is-loading': isSubmitting }"
+                      :disabled="successSubmit"
+                    >
+                      <template v-if="successSubmit">
+                        <span>
+                          Mensagem enviada
+                        </span>
+                        <span class="icon is-small">
+                          <i class="fas fa-check"></i>
+                        </span>
+                      </template>
+                      <template v-else>
+                        <span class="icon is-small">
+                          <i class="fas fa-paper-plane"></i>
+                        </span>
+                        <span>
+                          Enviar mensagem
+                        </span>
+                      </template>
+                    </button>
+                  </p>
+                </b-field>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </div>
 </template>
+
+<script>
+  import status from 'http-status'
+  export default {
+    data() {
+      return {
+        contact: {},
+        isSubmitting: false,
+        successSubmit: false
+      }
+    },
+    methods: {
+      formSubmitted() {
+        this.sendMessage()
+      },
+      sendMessage() {
+        this.isSubmitting = true
+        this.$axios
+          .post('/contact', {
+            contact: this.contact
+          })
+          .then(response => {
+            this.isSubmitting = false
+            if(response.status === status.OK) {
+              this.successSubmit = true
+            }
+          })
+      }
+    }
+  }
+</script>
 
 <style lang="scss" scoped>
   h3 ~ p {
@@ -78,12 +128,3 @@
     }
   }
 </style>
-
-<script>
-  export default {
-    data() {
-      return {
-      }
-    }
-  }
-</script>
