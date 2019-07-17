@@ -12,16 +12,6 @@
             <br />
           </div>
         </div>
-        <div class="is-inline-block">
-          <div class="titleDiv">
-            <div>
-              <h2>Portfólio</h2>
-            </div>
-            <div>
-              <hr />
-            </div>
-          </div>
-        </div>
         <div class="columns is-multiline">
           <div class="column is-4 is-flex" v-for="project in projects">
             <div class="card">
@@ -37,7 +27,7 @@
                   </div>
                 </div>
                 <div class="content">
-                  <p class="text description">
+                  <p class="text description has-text-justified">
                     {{ project.description }}
                   </p>
                 </div>
