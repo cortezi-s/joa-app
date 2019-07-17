@@ -66,7 +66,7 @@
                       <span>{{ article.source }}</span>
                     </p>
                     <p class="text">
-                      <a :href='article.link' class="has-text-info link">
+                      <a :href='article.link' target="_blank" class="has-text-info link">
                         <b-icon
                           pack="fas"
                           icon="link"
