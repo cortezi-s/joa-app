@@ -29,6 +29,9 @@
                 <a href="/empresa/time" class="navbar-item">
                   Time
                 </a>
+                <a href="/empresa/comites" class="navbar-item">
+                  Comitês
+                </a>
                 <a class="navbar-item">
                   Documentos relevantes
                 </a>
@@ -40,7 +43,7 @@
               </a>
 
               <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item is-hidden">
+                <a class="navbar-item">
                   Fundos
                 </a>
                 <a href="/negocios/portfolio" class="navbar-item">
@@ -69,12 +72,13 @@
                 <a href="/empresa/institucional">Institucional</a><br />
                 <span class="is-hidden"><a href="#">Governança</a><br /></span>
                 <a href="/empresa/time">Time</a><br />
+                <a href="/empresa/comites">Comitês</a><br />
                 <a href="#">Documentos relevantes</a>
               </div>
               <div class="column">
                 <strong>NEGÓCIOS</strong>
                 <br /><br />
-                <span class="is-hidden"><a href="#">Fundos</a><br /></span>
+                <a href="#">Fundos</a><br />
                 <a href="/negocios/portfolio">Portfólio</a><br />
               </div>
               <div class="column has-text-left">

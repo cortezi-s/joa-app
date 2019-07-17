@@ -4,7 +4,8 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <img src="~/assets/logo-light.svg" alt="Joá Assessoria" width="225" height="45">
+            <img src="~/assets/logo-web.svg" alt="Joá Assessoria" width="225" height="45" class="logoMob">
+            <img src="~/assets/logo-light.svg" alt="Joá Assessoria" width="225" height="45" class="logoDesktop">
           </a>
           <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="joaNavbar">
             <span aria-hidden="true"></span>
@@ -29,6 +30,9 @@
                 <a href="/empresa/time" class="navbar-item">
                   Time
                 </a>
+                <a href="/empresa/comites" class="navbar-item">
+                  Comitês
+                </a>
                 <a class="navbar-item">
                   Documentos relevantes
                 </a>
@@ -40,7 +44,7 @@
               </a>
 
               <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item is-hidden">
+                <a class="navbar-item">
                   Fundos
                 </a>
                 <a href="/negocios/portfolio" class="navbar-item">
@@ -69,12 +73,13 @@
                 <a href="/empresa/institucional">Institucional</a><br />
                 <span class="is-hidden"><a href="#">Governança</a><br /></span>
                 <a href="/empresa/time">Time</a><br />
+                <a href="/empresa/comites">Comitês</a><br />
                 <a href="#">Documentos relevantes</a>
               </div>
               <div class="column">
                 <strong>NEGÓCIOS</strong>
                 <br /><br />
-                <span class="is-hidden"><a href="#">Fundos</a><br /></span>
+                <a href="#">Fundos</a><br />
                 <a href="/negocios/portfolio">Portfólio</a><br />
               </div>
               <div class="column has-text-left">
@@ -142,6 +147,12 @@
   nav {
     padding-top: 1.5rem;
   }
+  .logoDesktop {
+    display: none;
+  }
+  .logoMob {
+    display: block;
+  }
   .footer {
     position: relative;
     bottom: 0;
@@ -170,7 +181,13 @@
       filter: grayscale(100%);
     }
   }
-  @media screen and (min-width: 768px), print {
+  @media screen and (min-width: 769px), print {
+    .logoDesktop {
+      display: block;
+    }
+    .logoMob {
+      display: none;
+    }
     .navbar-link.is-arrowless {
       color: white;
     }

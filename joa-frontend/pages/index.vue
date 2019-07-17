@@ -1,22 +1,22 @@
 <template>
   <div id="home">
-    <section class="homeHero is-hidden-mobile" data-aos="fade-down">
-      <video autoplay="autoplay" loop="loop" playsinline="true" preload="auto" muted="muted" poster="~/assets/videos/poster.jpg">
-        <source src="~/assets/videos/hero.webm" type="video/webm">
-        <source src="~/assets/videos/hero.mp4" type="video/mp4">
+    <section class="homeHero is-hidden-mobile">
+      <video autoplay="autoplay" loop="loop" playsinline="true" preload="auto" muted="muted" poster="~/assets/videos/fullscreenPoster.jpg">
+        <source src="~/assets/videos/fullscreen.webm" type="video/webm">
+        <source src="~/assets/videos/fullscreen.mp4" type="video/mp4">
       </video>
     </section>
 
     <section class="section heroText" data-aos="fade-down">
       <div class="container">
-        <div class="columns">
+        <div class="columns is-centered">
           <div class="column is-half">
             <h1>
               Buscamos negócios <br />inovadores
             </h1>
             <h1 class="sub">
               Visando a geração de valor <br class="is-hidden-mobile" />
-              ao longo prazo
+              a longo prazo
             </h1>
           </div>
         </div>
@@ -51,22 +51,38 @@
   </div>
 </template>
 
-<style lang="scss">
+<script>
+  export default {
+    layout: 'lightNav'
+  }
+</script>
+
+<style lang="scss" scoped>
   .textHome {
     margin-top: 4.5rem;
   }
 
+  @media screen and (min-width: 768px), print {
+    .textHome {
+      margin-top: 9rem;
+    }
+  }
+
   .homeHero {
     position: absolute;
-    top: 4rem;
-    right: -5rem;
+    top: 0rem;
+    right: 0;
+    left: 0;
     z-index: -1;
+    & video {
+      object-fit: cover;
+      width: 100vw;
+    }
   }
 
   @media screen and (min-width: 1900px), print {
     .homeHero {
-      right: 12.5rem;
-      top: 6rem;
+      right: 0;
     }
   }
 
@@ -91,10 +107,16 @@
     }
   }
 
-  @media screen and (min-width: 768px), print {
+  @media screen and (min-width: 769px), print {
     .heroText {
       margin-top: 4.5rem;
       margin-bottom: 15rem;
+      & h1 {
+        color: white;
+      }
+    }
+    .navbar-item.has-dropdown {
+      color: white;
     }
   }
 
@@ -108,7 +130,6 @@
   .homeContentBg {
     position: absolute;
     left: -16rem;
-    margin-top: -4.5rem;
     z-index: -1;
   }
 
