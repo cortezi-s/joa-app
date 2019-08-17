@@ -18,7 +18,10 @@ class Document < ApplicationRecord
 
 	def as_json(*)
 		super.except("created_at", "updated_at").tap do |hash|
-			hash["file"] = { name: file.blob.filename.to_s }
+			hash["file"] = {
+				name: file.blob.filename.to_s,
+				url: Rails.application.routes.url_helpers.rails_blob_path(file, only_path: true)
+			}
 		end
 	end
 end

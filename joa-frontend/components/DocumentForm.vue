@@ -66,9 +66,11 @@ export default {
   methods: {
     formSubmitted() {
       this.formData = new FormData()
-      Object.entries(this.doc).forEach(
-        ([key, value]) => this.formData.append(`document[${key}]`, value)
-      )
+      this.formData.append('document[name]', this.doc.name)
+      if(this.doc.file instanceof File) {
+        this.formData.append('document[file]', this.doc.file)
+      }
+
       if (this.doc.id) {
         this.editDocument()
       } else {

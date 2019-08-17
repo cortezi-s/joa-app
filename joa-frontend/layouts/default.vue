@@ -32,7 +32,7 @@
                 <a href="/empresa/comites" class="navbar-item">
                   Comitês
                 </a>
-                <a class="navbar-item">
+                <a href="/empresa/documentos_relevantes" class="navbar-item">
                   Documentos relevantes
                 </a>
               </div>
