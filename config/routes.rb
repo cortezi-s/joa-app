@@ -6,10 +6,12 @@ Rails.application.routes.draw do
 				resources :articles
 				resources :projects
 				resources :collaborators
+				resources :documents
 			end
 		  resources :articles
 		  resources :projects
 		  resources :collaborators
+			resources :documents, only: [:index, :show]
 		end
 	end
 	post 'contact', to: 'contacts#create'

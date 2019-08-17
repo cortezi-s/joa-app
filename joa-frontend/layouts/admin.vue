@@ -80,6 +80,11 @@ export default {
           title: 'Artigos',
           icon: 'newspaper',
           to: { path: '/admin/article' }
+        },
+        {
+          title: 'Documentos',
+          icon: 'file-alt',
+          to: { path: '/admin/document' }
         }
       ]
     }

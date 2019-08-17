@@ -28,6 +28,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Devise Token Auth. Read more: https://github.com/lynndylanhurley/devise_token_auth
 gem 'devise_token_auth'
 
+# Active Storage Validations
+gem 'active_storage_validations'
+
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'
