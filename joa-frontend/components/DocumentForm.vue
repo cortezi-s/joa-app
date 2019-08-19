@@ -20,6 +20,9 @@
             {{ doc.file.name }}
         </span>
       </b-field>
+      <p class="help is-block has-text-grey">
+        <strong>Extensões permitidas:</strong> .txt, .csv, .html, .xhtml, .xml, .pdf, .doc, .docx, .ppt, .xls, .xlsx, .rtf, .vsd.
+      </p>
       <b-field>
         <p class="control">
           <button
@@ -94,3 +97,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .help {
+    padding-bottom: 10px;
+    margin-top: -8px;
+  }
+</style>
