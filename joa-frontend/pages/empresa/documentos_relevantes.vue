@@ -13,12 +13,23 @@
           </div>
         </div>
 
-        <div class="columns is-multiline">
-          <div class="column">
+        <div class="columns">
+          <div class="column document is-6">
+            <div class="text">
+              <p>
+                Confira alguns documentos importantes disponíveis para download:
+              </p>
+            </div>
             <ul>
               <li v-for="doc in documents" :key="doc.id" :doc="doc">
                 <a :href="doc.file.url" target="_blank">
-                  {{ doc.name }}
+                  <b-icon
+                    pack="fas"
+                    icon="download"
+                    size="is-small"
+                    type="is-info">
+                  </b-icon>
+                  <span>{{ doc.name }}</span>
                 </a>
               </li>
             </ul>
@@ -48,3 +59,18 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  .column.document {
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: #FFFEFE;
+    & ul > li:not(:last-child), p {
+      padding-bottom: 20px;
+    }
+    & .icon {
+      padding-right: 8px;
+    }
+  }
+</style>
