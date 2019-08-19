@@ -38,7 +38,7 @@
           </div>
           <div class="column is-half textHome" data-aos="fade-left">
             <h2>A Joa Assessoria</h2>
-            <p class="text">
+            <p class="text has-text-justified">
               Somos uma gestora de investimentos orientada pela visão fundamentalista de geração de valor no longo prazo. Atuamos ativamente no cenário brasileiro em busca de oportunidades alinhadas aos valores e objetivos da companhia, mirando sempre retornos absolutos e sustentáveis no longo prazo.
               <br />
               <br />

@@ -13,10 +13,10 @@
           </div>
         </div>
 
-        <div class="columns is-multiline">
+        <div class="columns is-multiline is-variable is-8">
           <div class="column is-half">
             <h3>Comitê de Investimentos</h3>
-            <p class="text">
+            <p class="text has-text-justified">
               Formado pelo Diretor de Gestão e analistas da área de gestão de recursos.<br />
               O comitê tem como objetivo realizar pesquisas e discussões sobre cenários
               e premissas, buscando a estratégia mais adequada para alocação de recursos
@@ -26,7 +26,7 @@
           </div>
           <div class="column is-half">
             <h3>Comitê estratégico e de conformidade</h3>
-            <p class="text">
+            <p class="text has-text-justified">
               Composto pelo Diretor de Conformidade e membros da área de
               compliance. Responsável por definir as principais metas e estratégias da
               Joa Assessoria, avaliando o desempenho das equipes e planos futuros.
@@ -44,3 +44,9 @@
     </section>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  h3 {
+    padding-bottom: 20px;
+  }
+</style>

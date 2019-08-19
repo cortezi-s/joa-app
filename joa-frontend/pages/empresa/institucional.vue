@@ -12,7 +12,7 @@
             </div>
           </div>
         </div>
-        <div class="text">
+        <div class="text has-text-justified">
           <p>
             Fundada por experientes profissionais do mercado financeiro, a <strong>Joa
             Assessoria</strong> se dedica exclusivamente à gestão de fundos de investimentos.
@@ -40,3 +40,9 @@
     </section>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  div.text {
+    max-width: 960px;
+  }
+</style>
