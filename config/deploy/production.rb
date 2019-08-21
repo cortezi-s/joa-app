@@ -31,7 +31,7 @@ server '23.92.20.101', user: 'deploy', roles: %w{app db web}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-append :linked_dirs, '/home/deploy/joa-app/shared/public/uploads'
+# append :linked_dirs, '/home/deploy/joa-app/shared/public/uploads'
 
 
 
