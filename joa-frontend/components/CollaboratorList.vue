@@ -3,18 +3,20 @@
     <table class="table is-striped is-fullwidth">
       <thead>
         <tr>
+          <th></th>
           <th>Nome</th>
           <th>Cargo</th>
           <th></th>
           <th></th>
         </tr>
       </thead>
-      <tbody>
+      <draggable v-model="collaborators" tag="tbody" handle=".handle" @change="changeListOrder($event)">
         <tr
           v-for="collaborator in collaborators"
           :key="collaborator.id"
           :collaborator="collaborator"
         >
+          <td><i class="fa fa-align-justify handle"></i></td>
           <td>{{ collaborator.name }}</td>
           <td>{{ collaborator.role }}</td>
           <td>
@@ -32,13 +34,17 @@
             </a>
           </td>
         </tr>
-      </tbody>
+      </draggable>
     </table>
   </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 export default {
+  components: {
+    draggable,
+  },
   data() {
     return {
       collaborators: [],
@@ -49,6 +55,19 @@ export default {
     this.fetchCollaborators()
   },
   methods: {
+    changeListOrder(e) {
+      this.actionCollaborator = e.moved.element
+      let newPosition = e.moved.newIndex + 1;
+      if(newPosition !== this.actionCollaborator.position) {
+        this.actionCollaborator.position = newPosition;
+        this.updateCollaboratorPosition()
+      }
+    },
+    updateCollaboratorPosition() {
+      this.$axios.$patch(`/api/v1/admin/collaborators/${this.actionCollaborator.id}`, {
+        collaborator: this.actionCollaborator
+      })
+    },
     fetchCollaborators() {
       this.$axios.$get('/api/v1/admin/collaborators').then(response => {
         this.collaborators = response
@@ -86,3 +105,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.handle {
+  cursor: pointer;
+}
+</style>

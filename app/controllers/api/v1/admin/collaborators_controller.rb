@@ -7,7 +7,7 @@ module Api
 
         # GET /collaborators
         def index
-          @collaborators = Collaborator.all
+          @collaborators = Collaborator.all.order(position: :asc)
 
           render json: @collaborators
         end
@@ -50,7 +50,7 @@ module Api
 
           # Only allow a trusted parameter "white list" through.
           def collaborator_params
-            params.require(:collaborator).permit(:name, :role, :linkedin, :message, :image)
+            params.require(:collaborator).permit(:name, :role, :linkedin, :message, :image, :position)
           end
       end
     end

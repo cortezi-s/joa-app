@@ -6,7 +6,7 @@ module Api
 
       # GET /projects
       def index
-        @projects = Project.all.with_attached_hero_image
+        @projects = Project.all.order(position: :asc).with_attached_hero_image
 
         render json: @projects.map { |project|
           image_url = project.hero_image.present? ? rails_blob_path(project.hero_image) : nil

@@ -7,7 +7,7 @@ module Api
 
         # GET /projects
         def index
-          @projects = Project.all
+          @projects = Project.all.order(position: :asc)
 
           render json: @projects
         end
@@ -51,7 +51,8 @@ module Api
           # Only allow a trusted parameter "white list" through.
           def project_params
             params.require(:project).permit(:company_name, :date, :description, :founders, :linkedin,
-                                            :facebook, :twitter, :instagram, :homepage, :location, :hero_image, :team_image)
+                                            :facebook, :twitter, :instagram, :homepage, :location, :position,
+                                            :hero_image, :team_image)
           end
       end
     end

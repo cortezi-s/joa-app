@@ -31,6 +31,9 @@ gem 'devise_token_auth'
 # Active Storage Validations
 gem 'active_storage_validations'
 
+# ActsAsList
+gem 'acts_as_list'
+
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'

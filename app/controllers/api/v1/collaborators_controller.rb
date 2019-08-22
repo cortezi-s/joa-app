@@ -6,7 +6,7 @@ module Api
 
       # GET /collaborators
       def index
-        @collaborators = Collaborator.all
+        @collaborators = Collaborator.all.order(position: :asc)
 
         render json: @collaborators
       end
