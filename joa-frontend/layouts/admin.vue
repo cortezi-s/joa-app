@@ -67,6 +67,11 @@ export default {
     return {
       items: [
         {
+          title: 'Seções',
+          icon: 'layer-group',
+          to: { path: '/admin/section' }
+        },
+        {
           title: 'Colaboradores',
           icon: 'users',
           to: { path: '/admin/collaborator' }

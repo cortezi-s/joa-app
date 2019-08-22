@@ -37,13 +37,10 @@
             <img id="birds" src="~/assets/birds.svg" data-aos="fade-right">
           </div>
           <div class="column is-half textHome" data-aos="fade-left">
-            <h2>A Joa Assessoria</h2>
-            <p class="text has-text-justified">
-              Somos uma gestora de investimentos orientada pela visão fundamentalista de geração de valor no longo prazo. Atuamos ativamente no cenário brasileiro em busca de oportunidades alinhadas aos valores e objetivos da companhia, mirando sempre retornos absolutos e sustentáveis no longo prazo.
-              <br />
-              <br />
-              <a href="/empresa/institucional" class="more">Ler mais -></a>
-            </p>
+            <h2>{{ aboutSection.title }}</h2>
+            <p v-html="aboutSection.content" class="text has-text-justified"></p>
+            <br />
+            <a href="/empresa/institucional" class="more">Ler mais -></a>
           </div>
         </div>
       </div>
@@ -53,7 +50,17 @@
 
 <script>
   export default {
-    layout: 'lightNav'
+    layout: 'lightNav',
+    data() {
+      return {
+        aboutSection: {}
+      }
+    },
+    created() {
+      this.$axios.$get('/api/v1/sections/about').then(response => {
+        this.aboutSection = response
+      })
+    }
   }
 </script>
 

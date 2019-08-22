@@ -15,35 +15,37 @@
 
         <div class="columns is-multiline is-variable is-8">
           <div class="column is-half">
-            <h3>Comitê de Investimentos</h3>
-            <p class="text has-text-justified">
-              Formado pelo Diretor de Gestão e analistas da área de gestão de recursos.<br />
-              O comitê tem como objetivo realizar pesquisas e discussões sobre cenários
-              e premissas, buscando a estratégia mais adequada para alocação de recursos
-              no curto, médio e longo prazos. Também delibera sobre e aprova novos
-              investimentos e desinvestimentos.
-            </p>
+            <h3>{{ comiteSection1.title }}</h3>
+            <p v-html="comiteSection1.content" class="text has-text-justified"></p>
           </div>
           <div class="column is-half">
-            <h3>Comitê estratégico e de conformidade</h3>
-            <p class="text has-text-justified">
-              Composto pelo Diretor de Conformidade e membros da área de
-              compliance. Responsável por definir as principais metas e estratégias da
-              Joa Assessoria, avaliando o desempenho das equipes e planos futuros.
-              Também são discutidas políticas de controle de riscos e normas internas da
-              companhia, revisando e implementando métodos de controle de forma que
-              estes se adequem ao perfil da empresa. Delibera também sobre o impacto e
-              cumprimento das leis e regulamentações aplicáveis à empresa, o eventual
-              descumprimento do Código de Ética e demais políticas da Joa Assessoria,
-              assim como das leis e regulamentações aplicáveis, e as situações que não
-              estejam previstas nas políticas internas.
-            </p>
+            <h3>{{ comiteSection2.title }}</h3>
+            <p v-html="comiteSection2.content" class="text has-text-justified"></p>
           </div>
         </div>
       </div>
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      comiteSection1: {},
+      comiteSection2: {}
+    }
+  },
+  created() {
+    this.$axios.$get('/api/v1/sections/comite-1').then(response => {
+      this.comiteSection1 = response
+    })
+    this.$axios.$get('/api/v1/sections/comite-2').then(response => {
+      this.comiteSection2 = response
+    })
+  }
+}
+</script>
 
 <style lang="scss" scoped>
   h3 {
