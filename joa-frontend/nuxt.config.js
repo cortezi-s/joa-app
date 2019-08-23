@@ -82,7 +82,7 @@ module.exports = {
     '/api/v1/': 'http://localhost:3000',
     '/auth/': 'http://localhost:3000',
     '/contact': 'http://localhost:3000',
-    '/rails/active_storage/': 'https://joacapital.com.br:3000'
+    '/rails/active_storage/': 'http://localhost:3000'
   },
 
   /*
