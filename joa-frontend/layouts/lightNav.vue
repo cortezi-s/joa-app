@@ -174,7 +174,7 @@
           let body = document.querySelector('body')
           let modal = document.querySelector('.modal')
           let disclaimer = document.querySelector('.modal > .disclaimer')
-          body.style.cssText = 'overflow-y: hidden; position: fixed; width: 100%; bottom: 0px; top: 0px;'
+          body.style.cssText = 'overflow: hidden; position: fixed; width: 100%; bottom: 0px; top: 0px;'
           modal.classList.add('active')
         }
       },
