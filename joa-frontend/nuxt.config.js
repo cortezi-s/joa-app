@@ -34,7 +34,8 @@ module.exports = {
    */
   css: [
     'assets/scss/custom.scss',
-    'aos/dist/aos.css'
+    'aos/dist/aos.css',
+    'animate.css/animate.min.css'
   ],
 
   /*

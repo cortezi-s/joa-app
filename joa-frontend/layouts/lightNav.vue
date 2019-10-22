@@ -102,11 +102,43 @@
         </div>
 
     </footer>
+    <div class="modal" v-if="!acceptValue">
+      <div class="disclaimer">
+        <div class="logo">
+          <img src="~/assets/logo-web.svg" alt="Joá Assessoria" width="175" height="35">
+        </div>
+        <h1>Aviso de Condição Pré-Operacional</h1>
+        <div class="text">
+          <p>A <strong>Joá Assessoria</strong> encontra-se em processo de credenciamento junto à Comissão de Valores Mobiliários (CVM) para atuar como administradora de carteira de valores mobiliários na categoria gestora de recursos, nos termos da Instrução CVM nº 558 de 26 de Março de 2015.</p>
+
+          <p>A Joá Assessoria encontra-se, portanto, em fase pré-operacional e não realiza qualquer atividade de gestão. Todas as informações publicadas neste site visam, no momento, atender as demandas do regulador dentro do próprio processo de credenciamento.</p>
+
+          <p>Atenciosamente, <br />
+          Joá Assessoria</p>
+        </div>
+        <div class="error">
+          <p>Para acessar o site, você precisa concordar com os termos acima.</p>
+        </div>
+        <div class="buttons">
+          <a class="no" @click="no">
+            <span>Não concordo</span>
+          </a>
+          <a class="yes" @click="accept">
+            <span>Li e concordo</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
+    data() {
+      return {
+        acceptValue: ''
+      }
+    },
     methods: {
       burgerInit(){
         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
@@ -134,16 +166,147 @@
           duration: 600,
           easing: 'ease-out-back',
         })
+      },
+      check() {
+        if (this.$cookie.get('accept')) {
+          this.acceptValue = this.$cookie.get('accept')
+        } else {
+          let html = document.querySelector('html')
+          html.classList.add('is-clipped')
+        }
+      },
+      accept(){
+        this.$cookie.set('accept', 'yes', 1)
+        document.location.reload(true)
+
+      },
+      no() {
+        let errorMsg = document.querySelector('.disclaimer > .error')
+        errorMsg.className = 'error active animated shake'
       }
     },
     mounted() {
       this.burgerInit()
       this.aosInit()
+      this.check()
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  .modal {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    > .disclaimer {
+      position: relative;
+      display: block;
+      width: 60%;
+      min-height: 661px;
+      background: #FFFFFF;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      margin: 0 auto;
+      margin-top: 120px;
+      .logo {
+        width: fit-content;
+        margin: 0 auto;
+        img { margin-top: 65px; }
+      }
+      h1 {
+        margin-top: 21px;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 38px;
+        color: #28004C;
+        text-align: center;
+      }
+      .text {
+        max-width: 720px;
+        margin: 0 auto;
+        margin-top: 24px;
+        line-height: 22px;
+        margin-bottom: 24px;
+      }
+      .error {
+        display: flex;
+        opacity: 0;
+        max-width: 720px;
+        min-height: 60px;
+        margin: 0 auto;
+        background: #28004C;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        p { color: #ffffff; }
+        margin-bottom: 30px;
+        transition: opacity 500ms ease-in-out;
+        &.active { opacity: 1; }
+      }
+      .buttons {
+        max-width: 720px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+          width: 240px;
+          height: 54px;
+          border-radius: 10px;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+          &:hover { box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25); }
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 100ms ease-in-out;
+          &.no {
+            background: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            color: #28004C;
+          }
+          &.yes {
+            background: #FF7300;
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+ @media screen and (max-width: 769px) {
+    .modal {
+      > .disclaimer {
+        border-radius: unset;
+        overflow-y: scroll;
+        width: 100%;
+        height: 100%;
+        margin-top: unset;
+        padding: 20px;
+        .logo img { margin-top: unset; }
+        .error { padding: 20px; }
+        .buttons {
+          display: block;
+          a {
+            width: 100%;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+
+
   nav {
     padding-top: 1.5rem;
   }
