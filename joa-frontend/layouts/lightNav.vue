@@ -309,6 +309,7 @@
         .error { padding: 20px; }
         .buttons {
           display: block;
+          min-height: 200px;
           a {
             width: 100%;
             margin-bottom: 20px;
