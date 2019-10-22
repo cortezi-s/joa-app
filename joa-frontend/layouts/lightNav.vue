@@ -268,7 +268,6 @@
           height: 54px;
           border-radius: 10px;
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-          &:hover { box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25); }
           display: flex;
           align-items: center;
           justify-content: center;
@@ -297,9 +296,14 @@
         position: relative;
         overflow-y: auto;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         margin-top: unset;
         padding: 20px;
+        h1 {
+          font-size: 22px;
+          line-height: 24px;
+          margin-top: unset;
+        }
         .logo img { margin-top: unset; }
         .error { padding: 20px; }
         .buttons {
@@ -352,6 +356,9 @@
     }
   }
   @media screen and (min-width: 769px), print {
+    .modal > .disclaimer > .buttons {
+      a:hover { box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25); }
+    }
     .logoDesktop {
       display: block;
     }
