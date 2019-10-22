@@ -293,11 +293,11 @@
     .modal {
       > .disclaimer {
         border-radius: unset;
+        box-shadow: unset;
         position: relative;
-        overflow: auto;
-        overflow-x: hidden;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
         width: 100%;
-        height: 100vh;
         margin-top: unset;
         padding: 20px;
         h1 {
