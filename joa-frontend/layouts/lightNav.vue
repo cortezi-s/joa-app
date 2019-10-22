@@ -109,12 +109,12 @@
         </div>
         <h1>Aviso de Condição Pré-Operacional</h1>
         <div class="text">
-          <p>A <strong>Joá Assessoria</strong> encontra-se em processo de credenciamento junto à Comissão de Valores Mobiliários (CVM) para atuar como administradora de carteira de valores mobiliários na categoria gestora de recursos, nos termos da Instrução CVM nº 558 de 26 de Março de 2015.</p>
+          <p>A <strong>Joa Assessoria</strong> encontra-se em processo de credenciamento junto à Comissão de Valores Mobiliários (CVM) para atuar como administradora de carteira de valores mobiliários na categoria gestora de recursos, nos termos da Instrução CVM nº 558 de 26 de Março de 2015.</p>
 
-          <p>A Joá Assessoria encontra-se, portanto, em fase pré-operacional e não realiza qualquer atividade de gestão. Todas as informações publicadas neste site visam, no momento, atender as demandas do regulador dentro do próprio processo de credenciamento.</p>
+          <p>A Joa Assessoria encontra-se, portanto, em fase pré-operacional e não realiza qualquer atividade de gestão. Todas as informações publicadas neste site visam, no momento, atender as demandas do regulador dentro do próprio processo de credenciamento.</p>
 
           <p>Atenciosamente, <br />
-          Joá Assessoria</p>
+          Joa Assessoria</p>
         </div>
         <div class="error">
           <p>Para acessar o site, você precisa concordar com os termos acima.</p>
