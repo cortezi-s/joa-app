@@ -294,9 +294,10 @@
       > .disclaimer {
         border-radius: unset;
         position: relative;
-        overflow-y: auto;
+        overflow: auto;
+        overflow-x: hidden;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         margin-top: unset;
         padding: 20px;
         h1 {
