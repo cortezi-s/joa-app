@@ -102,7 +102,7 @@
         </div>
 
     </footer>
-    <div class="modal" v-if="!acceptValue">
+    <div class="modal">
       <div class="disclaimer">
         <div class="logo">
           <img src="~/assets/logo-web.svg" alt="Joá Assessoria" width="175" height="35">
@@ -172,7 +172,9 @@
           this.acceptValue = this.$cookie.get('accept')
         } else {
           let html = document.querySelector('html')
+          let disclaimer = document.querySelector('.modal')
           html.classList.add('is-clipped')
+          disclaimer.classList.add('active')
         }
       },
       accept(){
@@ -185,17 +187,19 @@
         errorMsg.className = 'error active animated shake'
       }
     },
+    beforeMount() {
+      this.check()
+    },
     mounted() {
       this.burgerInit()
       this.aosInit()
-      this.check()
     }
   }
 </script>
 
 <style lang="scss" scoped>
   .modal {
-    display: block;
+    display: none;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -205,6 +209,7 @@
     width: 100%;
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(20px);
+    &.active { display: block; }
     > .disclaimer {
       position: relative;
       display: block;
