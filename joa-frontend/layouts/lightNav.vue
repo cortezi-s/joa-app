@@ -171,9 +171,10 @@
         if (this.$cookie.get('accept')) {
           this.acceptValue = this.$cookie.get('accept')
         } else {
-          let html = document.querySelector('html')
+          let body = document.querySelector('body')
           let modal = document.querySelector('.modal')
-          html.style.cssText = 'overflow: hidden; height: '+modal.offsetHeight+'px;'
+          let disclaimer = document.querySelector('.modal > .disclaimer')
+          body.style.cssText = 'overflow-y: hidden; position: fixed; width: 100%; bottom: 0px; top: 0px;'
           modal.classList.add('active')
         }
       },
@@ -291,12 +292,12 @@
 
  @media screen and (max-width: 769px) {
     .modal {
-      overflow: unset;
       > .disclaimer {
         border-radius: unset;
-        overflow-y: scroll;
+        position: relative;
+        overflow-y: auto;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         margin-top: unset;
         padding: 20px;
         .logo img { margin-top: unset; }
