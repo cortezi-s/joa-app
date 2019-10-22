@@ -172,9 +172,9 @@
           this.acceptValue = this.$cookie.get('accept')
         } else {
           let html = document.querySelector('html')
-          let disclaimer = document.querySelector('.modal')
-          html.classList.add('is-clipped')
-          disclaimer.classList.add('active')
+          let modal = document.querySelector('.modal')
+          html.style.cssText = 'overflow: hidden; height: '+modal.offsetHeight+'px;'
+          modal.classList.add('active')
         }
       },
       accept(){
