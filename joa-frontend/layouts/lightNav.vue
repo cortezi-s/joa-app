@@ -291,6 +291,7 @@
 
  @media screen and (max-width: 769px) {
     .modal {
+      overflow: unset;
       > .disclaimer {
         border-radius: unset;
         overflow-y: scroll;
