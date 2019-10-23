@@ -170,6 +170,7 @@
       check() {
         if (this.$cookie.get('accept')) {
           this.acceptValue = this.$cookie.get('accept')
+          this.$cookie.delete('accept')
         } else {
           let body = document.querySelector('body')
           let modal = document.querySelector('.modal')
