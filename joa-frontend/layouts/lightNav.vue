@@ -211,6 +211,7 @@
     width: 100%;
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(20px);
+    overflow: auto;
     &.active { display: block; }
     > .disclaimer {
       position: relative;
