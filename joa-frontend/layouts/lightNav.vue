@@ -190,7 +190,7 @@
       }
     },
     beforeMount() {
-      this.check()
+      // this.check()
     },
     mounted() {
       this.burgerInit()
