@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     fetchArticles() {
-      this.$axios.$get('/api/v1/articles').then(response => {
+      this.$axios.$get('/api/v1/admin/articles').then(response => {
         this.articles = response
       })
     },
